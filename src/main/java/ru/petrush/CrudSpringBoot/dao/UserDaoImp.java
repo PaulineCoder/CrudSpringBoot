@@ -2,6 +2,7 @@ package ru.petrush.CrudSpringBoot.dao;
 
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import org.springframework.stereotype.Component;
 import ru.petrush.CrudSpringBoot.model.User;
@@ -12,12 +13,8 @@ import java.util.List;
 @Component
 public class UserDaoImp implements UserDao {
 
-    private final EntityManager entityManager;
-
-
-    public UserDaoImp(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
+    @PersistenceContext
+    private  EntityManager entityManager;
 
     @Override
     public List<User> listUsers() {
