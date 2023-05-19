@@ -2,9 +2,7 @@ package ru.petrush.CrudSpringBoot.dao;
 
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.petrush.CrudSpringBoot.model.User;
 
@@ -14,10 +12,9 @@ import java.util.List;
 @Component
 public class UserDaoImp implements UserDao {
 
-    @PersistenceContext
     private final EntityManager entityManager;
 
-    @Autowired
+
     public UserDaoImp(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
